@@ -1,0 +1,282 @@
+*{
+    padding: 0;
+    margin: 0;  
+}
+
+.clearfix:before,.clearfix:after{
+    content: "";
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+.clearfix{
+    zoom:1;
+}
+
+.main{
+    width: 1280px;
+    height: 4554px;
+    background-color: yellow;
+    margin: 0px auto;
+}
+
+/*导航条*/
+.navbar{
+    background-color: #fff;
+    height: 57px;
+}
+
+.navbar .logo{
+    margin: 10px 0 10px 59px;
+    float: left;
+    height: 37px;
+}
+.navbar img{
+    width: 37px;
+    float: left;
+}
+
+.navbar .logo h1{
+    display: inline-block;
+    margin-left: 10px;
+    font: 21px/37px "SimHei";
+    float: left;
+}
+/*.navbar .logo h1:before{
+    content:url(../media/1.7/logo.png);
+
+}*/
+
+.navbar .right{
+    /*padding-top: 15px;*/
+}
+/*导航条导航栏*/
+.navbar .right>a{
+    margin-right: 64px;
+    color: #e74f4d;
+    float: right;
+    font: 14px "Microsoft Yahei";
+    text-decoration: none;
+    padding-top: 15px;
+}
+
+.navbar .right>img{
+    float: right;
+    width: 14px;
+    height: 17px;
+    margin-top: 18px;
+    margin-right: 5px;
+}
+
+.navbar ul{
+    float: right;
+}
+
+.navbar li{
+    display: inline-block;
+    width: 67px;
+    margin-right: 30px;
+    line-height: 55px;
+    text-align: center;
+}
+.navbar li a{
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    font: 14px/55px "MicrosoftYaHei";
+    color: #787b83;
+}
+
+.navbar li a:hover{
+    border-bottom: 2px solid red;
+    color: #e74f4d;
+}
+
+/*section1*/
+.section1{
+    height: 690px;
+    background: url("../images/section1.jpg")  no-repeat;
+    position: relative;
+}
+.section1 .box{
+    color: #fff;
+    position: absolute;
+    top: 230px;
+    left: 20%;
+    display: inline-block;
+    font-family: "MicrosoftYaHei";
+}
+.section1 h2{
+    font-size: 60px ;
+}
+.section1 p{
+    font-size: 21px;
+    margin-top: 30px;
+}
+.section1 a{
+    color: #fff;
+    width: 331px;
+    height: 65px;
+    text-decoration: none;
+    background-color: #e45151;
+    display: inline-block;
+    margin-top: 66px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 65px;
+}
+
+.section2{
+    height: 250px;
+    background-color: #fff;
+}
+
+.section2 div.box{
+    height: 250px;
+    width: 318.5px;
+    float: left;
+    position: relative;
+}
+.section2 div.separate{
+    float: left;
+    width: 2px;
+    height: 52px;
+    background-color: #989899;
+}
+.section2 div img{
+    width: 45px;
+    height: 45px;
+    left: 143px;
+    top: 43px;
+    position: absolute;
+}
+.section2 div p{
+    top: 132px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    /*left: auto;*/
+    font: normal 14px "Heiti";
+    position: absolute;
+
+}
+.section2 .separate{
+    margin-top: 132px;
+}
+
+
+.section3{
+    height: 360px;
+    background-color: #edecec;
+}
+.section3 img{
+    display: block;
+    margin: 88px auto 0;
+    height: 95px;
+    width: 95px;
+}
+.section3 p{
+    text-align: center;
+    color: #323333;
+    font: normal 54px/1 "Heiti";
+    margin-top: 40px;
+    padding: 0;
+}
+
+.section4{
+    height: 340px;
+    background-color: pink;
+}
+.section4 p{
+    text-align: center;
+    font-family: "Microsoft Yahei";
+    color: #fff;
+}
+.section4 .title1{
+    font-size: 21px;
+    margin-top: 53px;
+}
+.section4 .title2{
+    font-size: 12px;
+}
+.section4 .line{
+    background-color: #fff;
+    height: 3px;
+    width: 31px;
+    margin: 10px auto 19px;
+}
+.section4 .box{
+    height: 36px;
+    width: 1029px;
+    margin: 50px auto;
+}
+.section4 .menu{
+    width: 235.5px;
+    background-color: #fff;
+    float: left;
+    display: inline-block;
+    height: 100%;
+    margin-right: 29px;
+}
+.section4 .menu span{
+    font: normal 12px/36px "Microsoft Yahei";
+    color: #a8aaaa;
+    margin-left: 13px;
+    display: inline-block;
+}
+.section4 .menu:hover{
+    border: 1px solid red;
+    width: 233.5px;
+    height: 34px;
+}
+
+.section4 .menu a{
+    float: right;
+    margin-right: 8px;
+    margin-top: 10px;
+}
+.section4 .search{
+    margin-right: 0;
+    background-color: red;
+    color: #fff;
+    line-height: 36px;
+    text-align: center;  
+    text-decoration: none; 
+    /*cursor: pointer;*/
+}
+.section4 .search:hover{
+    border: 0px;
+    width: 235.5px;
+    height: 36px;
+    background-color: #f33;
+}
+
+.section5{
+    height: 605px;
+}
+
+.section6{
+    height: 565px;
+}
+
+.section7{
+    height: 522px;
+}
+
+.section8{
+    height: 750px;
+    background-color: #fff;
+}
+
+.section9{
+    height: 357px;
+    background-color: #32363e;
+}
+
+.footer{
+    height: 58px;
+    background-color: #2f3038;
+}
+
+
