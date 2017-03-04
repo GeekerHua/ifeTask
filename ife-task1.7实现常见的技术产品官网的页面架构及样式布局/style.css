@@ -188,6 +188,24 @@ body {
 .section4 .box .menu a {
   float: right;
 }
+.section4 .box .menu2 {
+  position: relative;
+}
+.section4 .box .menu2 select {
+  background-color: #e4e3e5;
+  list-style-type: none;
+  border-style: none;
+  width: 236px;
+  height: 26px;
+  border: 1px solid red;
+  position: absolute;
+  top: 36px;
+  left: 0;
+}
+.section4 .box .menu2 select .option :nth-child(1) {
+  background-color: #bc504b;
+  height: 26px;
+}
 .section4 .box .search {
   margin-right: 0;
   background-color: #bd504a;
@@ -352,15 +370,171 @@ body {
   height: 750px;
   background-color: #fff;
 }
+.section8 h3 {
+  margin: 110px auto 0;
+  font-size: 21px;
+  color: #323333;
+  line-height: 36px;
+  text-align: center;
+}
+.section8 .line {
+  background-color: #e74f4d;
+  height: 3px;
+  width: 31px;
+  margin: 0 auto 10px;
+}
+.section8 .title {
+  font-size: 12px;
+  color: #aaaaaa;
+  text-align: center;
+}
+.section8 .input {
+  margin: 100px auto 0;
+  width: 1004px;
+  height: 282px;
+}
+.section8 .input .left {
+  float: left;
+  width: 290px;
+  height: 100%;
+  color: #231815;
+}
+.section8 .input .left .sentence1, .section8 .input .left .sentence2, .section8 .input .left .sentence3 {
+  margin-bottom: 32px;
+}
+.section8 .input .left .sentence1 h4, .section8 .input .left .sentence2 h4, .section8 .input .left .sentence3 h4 {
+  font-size: 14px;
+  font-weight: bold;
+}
+.section8 .input .left .sentence1 p, .section8 .input .left .sentence2 p, .section8 .input .left .sentence3 p {
+  font-size: 12px;
+  margin-top: 25px;
+}
+.section8 .input .left .sentence1 a, .section8 .input .left .sentence2 a, .section8 .input .left .sentence3 a {
+  display: block;
+  margin: 5px 0 0 240px;
+  font-size: 12px;
+  text-indent: 20px;
+  background: url(images/arrow_down.png) 1px 5px no-repeat;
+}
+.section8 .input .left .sentence2 {
+  margin-bottom: 17px;
+}
+.section8 .input .left .sentence3 {
+  margin-bottom: 0px;
+}
+.section8 .input .right {
+  width: 640px;
+  height: 100%;
+  float: right;
+}
+.section8 .input .right input {
+  width: 310px;
+  height: 40px;
+  background-color: #ededed;
+  text-indent: 15px;
+  margin-bottom: 12px;
+  margin-right: 20px;
+  border: none;
+}
+.section8 .input .right textarea {
+  background-color: #ededed;
+  border: none;
+  width: 100%;
+  height: 120px;
+  text-indent: 18px;
+  margin-bottom: 11px;
+}
+.section8 .input .right .ri {
+  margin-right: 0px;
+}
+.section8 .input .right .submit {
+  width: 640px;
+  font-size: 14px;
+  color: #323333;
+  cursor: pointer;
+}
 
 .section9 {
   height: 357px;
   background-color: #32363e;
+  text-align: center;
+}
+.section9 h4 {
+  margin-top: 90px;
+  font-size: 21px;
+  color: #fff;
+}
+.section9 p {
+  color: #fff;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.section9 .input {
+  width: 510px;
+  height: 40px;
+  margin: 25px auto 0;
+}
+.section9 .input input {
+  width: 430px;
+  height: 100%;
+  line-height: 14px;
+  text-indent: 10px;
+  background-color: #fff;
+  float: left;
+  border: none;
+}
+.section9 .input a {
+  float: right;
+  width: 80px;
+  height: 100%;
+  background-color: #6f7278;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  line-height: 40px;
+}
+.section9 .logo_link_bar {
+  width: 200px;
+  height: 30px;
+  margin: 35px auto 0;
+}
+.section9 .logo_link_bar .logo_link {
+  float: left;
+  width: 50px;
+  height: 100%;
+  background: url(images/icons.png) 13px -398px no-repeat;
+}
+.section9 .logo_link_bar :nth-child(2) {
+  background: url(images/icons.png) 13px -498px no-repeat;
+}
+.section9 .logo_link_bar :nth-child(3) {
+  background: url(images/icons.png) 13px -598px no-repeat;
+}
+.section9 .logo_link_bar :nth-child(4) {
+  background: url(images/icons.png) 13px -698px no-repeat;
 }
 
 .footer {
   height: 58px;
   background-color: #2f3038;
+}
+.footer .center {
+  position: relative;
+}
+.footer span {
+  position: absolute;
+  left: 98px;
+  top: 30px;
+  font-size: 12px;
+  color: #fff;
+}
+.footer a {
+  position: absolute;
+  right: 40px;
+  top: 35px;
+  font-size: 12px;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
