@@ -37,7 +37,7 @@ body {
   line-height: 52px;
 }
 .nav_bar .right .login_btn {
-  background: url(images/icon_user.png) 0 18px no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/icon_user.png) 0 18px no-repeat;
   text-indent: 23px;
   color: #e74f4d;
   margin-right: 57px;
@@ -58,7 +58,7 @@ body {
 
 .section1 {
   height: 690px;
-  background: url("images/section1.jpg") no-repeat;
+  background: url("http://img.geekerhua.com/ife/1.7/section1.jpg") no-repeat;
   color: #fff;
   width: 1280px;
   margin: 0 auto;
@@ -106,19 +106,19 @@ body {
   background-color: #989899;
 }
 .section2 .img {
-  background: url(images/icons.png) no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/icons.png) no-repeat;
   height: 42px;
   width: 42px;
   margin: 43px 0 45px 144px;
 }
 .section2 .icon2 {
-  background: url(images/icons.png) 0 -100px no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/icons.png) 0 -100px no-repeat;
 }
 .section2 .icon3 {
-  background: url(images/icons.png) 0 -200px no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/icons.png) 0 -200px no-repeat;
 }
 .section2 .icon4 {
-  background: url(images/icons.png) 0 -300px no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/icons.png) 0 -300px no-repeat;
 }
 
 .section3 {
@@ -148,7 +148,7 @@ body {
   height: 340px;
   width: 1280px;
   margin: 0 auto;
-  background: url(images/section4.jpg) no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/section4.jpg) no-repeat;
   color: #fff;
   font-family: "MicrosoftYaHei";
 }
@@ -187,17 +187,26 @@ body {
 }
 .section4 .box .menu a {
   float: right;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  margin-top: 8px;
+  background: #bd504b url(http://img.geekerhua.com/ife/1.7/arrow_down.png) 4px 7px no-repeat;
 }
 .section4 .box .menu2 {
   position: relative;
+  border: 2px solid #bd504b;
+  width: 232px;
+  height: 34px;
+  margin-top: -1px;
 }
 .section4 .box .menu2 select {
   background-color: #e4e3e5;
   list-style-type: none;
   border-style: none;
-  width: 236px;
+  width: 235px;
   height: 26px;
-  border: 1px solid red;
+  border: 2px solid #bd504b;
   position: absolute;
   top: 36px;
   left: 0;
@@ -270,7 +279,7 @@ body {
   height: 100%;
   background-color: green;
   float: left;
-  background: url(images/section6.jpg) no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/section6.jpg) no-repeat;
   text-align: center;
   color: #fff;
 }
@@ -363,7 +372,7 @@ body {
   width: 430px;
   float: right;
   height: 100%;
-  background: url(images/section7.jpg) no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/section7.jpg) no-repeat;
 }
 
 .section8 {
@@ -415,7 +424,7 @@ body {
   margin: 5px 0 0 240px;
   font-size: 12px;
   text-indent: 20px;
-  background: url(images/arrow_down.png) 1px 5px no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/arrow_down.png) 1px 5px no-repeat;
 }
 .section8 .input .left .sentence2 {
   margin-bottom: 17px;
@@ -503,16 +512,16 @@ body {
   float: left;
   width: 50px;
   height: 100%;
-  background: url(images/icons.png) 13px -398px no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/icons.png) 13px -398px no-repeat;
 }
 .section9 .logo_link_bar :nth-child(2) {
-  background: url(images/icons.png) 13px -498px no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/icons.png) 13px -498px no-repeat;
 }
 .section9 .logo_link_bar :nth-child(3) {
-  background: url(images/icons.png) 13px -598px no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/icons.png) 13px -598px no-repeat;
 }
 .section9 .logo_link_bar :nth-child(4) {
-  background: url(images/icons.png) 13px -698px no-repeat;
+  background: url(http://img.geekerhua.com/ife/1.7/icons.png) 13px -698px no-repeat;
 }
 
 .footer {
