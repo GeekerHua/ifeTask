@@ -449,7 +449,7 @@ body {
 .section8 .input .right textarea {
   background-color: #ededed;
   border: none;
-  width: 100%;
+  width: 636px;
   height: 120px;
   text-indent: 18px;
   margin-bottom: 11px;
@@ -468,6 +468,8 @@ body {
   height: 357px;
   background-color: #32363e;
   text-align: center;
+  width: 1280px;
+  margin: 0 auto;
 }
 .section9 h4 {
   margin-top: 90px;
@@ -527,6 +529,8 @@ body {
 .footer {
   height: 58px;
   background-color: #2f3038;
+  width: 1280px;
+  margin: 0 auto;
 }
 .footer .center {
   position: relative;

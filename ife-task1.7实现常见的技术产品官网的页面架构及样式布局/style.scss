@@ -468,7 +468,7 @@ body{
             textarea{
                 background-color: #ededed;
                 border: none;
-                width: 100%;
+                width: 636px;
                 height: 120px;
                 text-indent: 18px;
                 margin-bottom: 11px;
@@ -490,6 +490,8 @@ body{
     height: 357px;
     background-color: #32363e;
     text-align: center;
+    width: $center_width;
+    margin: 0 auto;
     h4{
         margin-top: 90px;
         font-size:21px;
@@ -549,6 +551,8 @@ body{
 .footer{
     height: 58px;
     background-color: #2f3038;
+    width: $center_width;
+    margin: 0 auto;
     .center{
         position: relative;
     }
