@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            background-color: #dedede;
+            height: 500px;
+            display: flex;
+            flex-flow: row wrap;
+            align-content: center;
+        }
+        .box div{
+            border: 1px solid #f00;
+            width: 150px;
+            /*margin: 20px;*/
+        }
+        #first{
+            height: 120px;
+        }
+        #second{
+            height: 100px;
+        }
+        #third{
+            height: 40px;
+        }
+        #fourth{
+            border: 1px solid #0f0;
+            height: 200px;
+        }
+        @media (min-width:640px){
+            .box{
+                align-items: center;
+                justify-content: space-between;
+                /*background-color: yellow;*/
+            }
+        }
+        @media (max-width:640px){
+            .box{
+                align-items: flex-start;
+                justify-content: space-around;
+                /*background-color: cyan;*/
+            }
+            #fourth{
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="first"></div>
+        <div id="second"></div>
+        <div id="third"></div>
+        <div id="fourth"></div>
+    </div>
+</body>
+</html>
