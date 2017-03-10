@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <style>
+            .con{
+                margin: 20px auto;
+                height: 500px;
+                width: 500px;
+            }
+            #content{
+                margin: 20px auto;
+                height: 300px;
+                width: 500px;
+            }
+            #content div{
+                background-color: red;
+                text-align: center;
+                float: left;
+                color: #fff;
+                line-height: 40px;
+                height: 40px;
+                margin-right: 10px;
+                padding: 0 8px;
+                cursor: pointer;
+            }
+        </style>
+</head>
+<body>
+    <div class="con">
+        <input id="txt" type="text" placeholder="输入数字">
+        <input id="left_in" type="button" value="左侧入">
+        <input id="right_in" type="button" value="右侧入">
+        <input id="left_out" type="button" value="左侧出">
+        <input id="right_out" type="button" value="右侧出">
+        <div id="content">
+        </div>
+    </div>
+
+    <script>
+        var aData = [];
+        var oTxt = document.getElementById('txt');
+        var oLeftIn = document.getElementById('left_in');
+        var oRightIn = document.getElementById('right_in');
+        var oLeftOut = document.getElementById('left_out');
+        var oRightOut = document.getElementById('right_out');
+        var oContent = document.getElementById('content');
+
+        function clickme(oDiv) {
+            oDiv.parentNode.removeChild(oDiv);
+        };
+
+        function addElement(lastElement) {
+            var oDiv = document.createElement('div');
+            var node = document.createTextNode(oTxt.value);
+            oDiv.appendChild(node);
+            oContent.insertBefore(oDiv,lastElement);
+            console.log(oDiv);
+            oDiv.onclick = function(){
+                clickme(oDiv);
+            };
+        }
+
+        oLeftIn.onclick = function(){
+           addElement(oContent.firstChild);
+        };
+
+        oRightIn.onclick = function(){
+           addElement(undefined);
+        };
+
+        oLeftOut.onclick = function(){
+            var aContent = oContent.getElementsByTagName('div');
+            aContent[0].parentNode.removeChild(aContent[0]);
+        };
+
+        oRightOut.onclick = function(){
+            var aContent = oContent.getElementsByTagName('div');
+            aContent[aContent.length - 1].parentNode.removeChild(aContent[aContent.length - 1]);
+        };
+    </script>
+</body>
+</html>
