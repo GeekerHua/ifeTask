@@ -74,9 +74,10 @@
         // 添加元素
         function addElement(lastElement) {
             // 判断是否是数值
-            var str = oTxt.value;
-            if ((str.length > 0) && (Number(str) >= 0)){
-                var no = Number(str);
+            if (!isNaN(oTxt.value) && (oTxt.value.length > 0)){
+            // var str = oTxt.value;
+            // if ((str.length > 0) && (Number(str) >= 0)){
+                var no = Number(oTxt.value);
                 // 判断是否个数超过了
                 if ( oContent.childElementCount >= 60) {
                     alert('插入数据不能超过60个');
