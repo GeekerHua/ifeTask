@@ -45,11 +45,40 @@
         <input id="right_in" type="button" value="右侧入">
         <input id="left_out" type="button" value="左侧出">
         <input id="right_out" type="button" value="右侧出">
+        <input id="sort" type="button" value="排序">
         <div id="content">
-            <div style="height: 2em"></div>
+            <div style="height: 2.9em"></div>
             <div style="height: 1em"></div>
             <div style="height: 4em"></div>
+            <div style="height: 6.5em"></div>
+            <div style="height: 7em"></div>
+            <div style="height: 10em"></div>
             <div style="height: 2em"></div>
+            <div style="height: 3em"></div>
+            <div style="height: 23em"></div>
+            <div style="height: 10em"></div>
+            <div style="height: 12em"></div>
+            <div style="height: 11em"></div>
+            <div style="height: 2em"></div>
+            <div style="height: 10em"></div>
+            <div style="height: 21em"></div>
+            <div style="height: 3em"></div>
+            <div style="height: 2em"></div>
+            <div style="height: 13em"></div>
+            <div style="height: 10em"></div>
+            <div style="height: 16em"></div>
+            <div style="height: 2em"></div>
+            <div style="height: 3em"></div>
+            <div style="height: 2em"></div>
+            <div style="height: 17em"></div>
+            <div style="height: 2em"></div>
+            <div style="height: 11.5em"></div>
+            <div style="height: 4em"></div>
+            <div style="height: 6.5em"></div>
+            <div style="height: 2em"></div>
+            <div style="height: 1em"></div>
+            <div style="height: 2.9em"></div>
+            <div style="height: 6.5em"></div>
             <div style="height: 7em"></div>
             <div style="height: 10em"></div>
             <div style="height: 2em"></div>
@@ -65,6 +94,32 @@
         var oLeftOut = document.getElementById('left_out');
         var oRightOut = document.getElementById('right_out');
         var oContent = document.getElementById('content');
+        var oSort = document.getElementById('sort');
+        var aDivs = oContent.getElementsByTagName('div');
+        var iIndex = 0;
+        var jIndex = 0;
+
+        // 点击排序按钮进行动画冒泡排序
+        oSort.onclick = function() {
+            var x = 0;
+            for (var i = 0 ; i<aDivs.length; i++){
+                for (var j= i + 1; j < aDivs.length; j++) {
+                    (function(i,j){
+                        setTimeout(function(){
+                            console.log(jIndex);
+                            var height1 = aDivs[i].style.height;
+                            var height2 = aDivs[j].style.height;
+                            if (parseFloat(height2) < parseFloat(height1)) {
+                                var tmpDiv = aDivs[j];
+                                oContent.removeChild(aDivs[j]);
+                                oContent.insertBefore(tmpDiv,aDivs[i]);
+                            }
+                        }, x * 10);
+                    })(i,j);
+                    x++;
+                }
+            }
+        };
 
         // 单个元素的点击事件
         function clickme(oDiv) {
@@ -75,8 +130,6 @@
         function addElement(lastElement) {
             // 判断是否是数值
             if (!isNaN(oTxt.value) && (oTxt.value.length > 0)){
-            // var str = oTxt.value;
-            // if ((str.length > 0) && (Number(str) >= 0)){
                 var no = Number(oTxt.value);
                 // 判断是否个数超过了
                 if ( oContent.childElementCount >= 60) {
