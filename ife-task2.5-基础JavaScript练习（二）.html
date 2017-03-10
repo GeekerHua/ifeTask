@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript练习二</title>
+        <style>
+            .con{
+                margin: 20px auto;
+                height: 500px;
+                width: 500px;
+            }
+            #content{
+                margin: 20px auto;
+                height: 400px;
+                width: 500px;
+                background-color: yellow;
+                display: flex;
+                flex-flow: row nowrap;
+                /*侧轴项目堆栈伸缩行*/
+                /*align-content: flex-end;*/
+                /*主轴对齐伸缩*/
+                /*justify-content: flex-start;*/
+                /*侧轴对齐*/
+                align-items: flex-end;
+            }
+            #content div{
+                background-color: red;
+                text-align: center;
+                float: left;
+                color: #fff;
+                line-height: 1em;
+                margin-right: 3px;
+                /*padding: 0 8px;*/
+                cursor: pointer;
+                width: 1em;
+            }
+        </style>
+</head>
+<body>
+    <div class="con">
+        <input id="txt" type="text" placeholder="输入数字">
+        <input id="left_in" type="button" value="左侧入">
+        <input id="right_in" type="button" value="右侧入">
+        <input id="left_out" type="button" value="左侧出">
+        <input id="right_out" type="button" value="右侧出">
+        <div id="content">
+            <div style="height: 2em"></div>
+            <div style="height: 1em"></div>
+            <div style="height: 4em"></div>
+            <div style="height: 2em"></div>
+            <div style="height: 7em"></div>
+            <div style="height: 10em"></div>
+            <div style="height: 2em"></div>
+            <div style="height: 3em"></div>
+        </div>
+    </div>
+
+    <script>
+        var aData = [];
+        var oTxt = document.getElementById('txt');
+        var oLeftIn = document.getElementById('left_in');
+        var oRightIn = document.getElementById('right_in');
+        var oLeftOut = document.getElementById('left_out');
+        var oRightOut = document.getElementById('right_out');
+        var oContent = document.getElementById('content');
+
+        // 单个元素的点击事件
+        function clickme(oDiv) {
+            oDiv.parentNode.removeChild(oDiv);
+        };
+
+        // 添加元素
+        function addElement(lastElement) {
+            // 判断是否是数值
+            var str = oTxt.value;
+            if ((str.length > 0) && (Number(str) >= 0)){
+                var no = Number(str);
+                // 判断是否个数超过了
+                if ( oContent.childElementCount >= 60) {
+                    alert('插入数据不能超过60个');
+                    return;
+                }
+                // 判断是否符合数值要求
+                if ( no < 10 || no > 100) {
+                    alert('请输入10到100之间的数');
+                    return;
+                }
+                
+                // 插入元素
+                var oDiv = document.createElement('div');
+                oDiv.style.height = no * 0.2 + 'em';
+                oDiv.style.lineHeight = no * 0.2 + 'em';
+                var node = document.createTextNode(no);
+                oDiv.appendChild(node);
+                oContent.insertBefore(oDiv,lastElement);
+                // console.log(oDiv);
+                oDiv.onclick = function(){
+                    clickme(oDiv);
+                };
+            } else {
+                alert('请输入数字');
+            }
+        }
+
+        oLeftIn.onclick = function(){
+           addElement(oContent.firstChild);
+        };
+
+        oRightIn.onclick = function(){
+           addElement(undefined);
+        };
+
+        oLeftOut.onclick = function(){
+            var aContent = oContent.getElementsByTagName('div');
+            aContent[0].parentNode.removeChild(aContent[0]);
+        };
+
+        oRightOut.onclick = function(){
+            var aContent = oContent.getElementsByTagName('div');
+            aContent[aContent.length - 1].parentNode.removeChild(aContent[aContent.length - 1]);
+        };
+    </script>
+</body>
+</html>
