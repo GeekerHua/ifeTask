@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单（一）单个表单项的检验</title>
+    <style>
+        .box{
+            margin: 20px auto 0;
+            width: 400px;
+        }
+        
+        .name {
+            margin-right: 30px;
+        }
+
+        .info{
+            font-size: 12px;
+            display: block;
+            margin: 5px 64px 0;
+        }
+        .input{
+            height: 25px;
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+        .btn{
+            background-color: dodgerblue;
+            color: #fff;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 60px;
+            height: 30px; 
+        }
+        .info {
+            display: none;
+        }
+
+        .error{
+            border-color: red;
+        }
+        .input.error{
+            border: 1px solid red;
+        }
+        .info.error{
+            color: red;
+        }
+        
+        .success{
+            border-color: limegreen;
+        }
+        .input.success{
+            border: 1px solid limegreen;
+        }
+        .info.success{
+            color: limegreen;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box box1">
+        <label class="name" for="">名称</label>
+        <input class="input" id='input1' type="text" value="" placeholder="请输入名称(4-16个字符)">
+        <input class="btn" id="btn1" type="button" value="验证">
+        <label class="info" id="info1" for="">姓名不能为空</label>
+    </div>
+
+    <script>    
+
+        function fnFilterInput() {
+            var txt = oTxt1.value;
+            var sLength = txt.replace(/[^\x00-\xff]/g,"01").length;
+            oInfo1.style.display = 'block';
+            if (txt.length == 0 ){
+                // 名称不能为空
+                oInfo1.innerHTML = "名称不能为空";
+                oInfo1.className = 'info error';
+                oTxt1.className = 'input error';
+            } else if(sLength >16 | sLength < 4) {
+                // 名称
+                oInfo1.innerHTML = "名称长度不对";
+                oInfo1.className = 'info error';
+                oTxt1.className = 'input error';
+            } else {
+                // 名称格式正确
+                oInfo1.innerHTML = "名称格式正确";
+                oInfo1.className = 'info success';
+                oTxt1.className = 'input success';
+            }
+        }
+        // 姓名验证
+        var oBtn1 = document.getElementById('btn1');
+        var oTxt1 = document.getElementById('input1');
+        var oInfo1 = document.getElementById('info1');
+        oBtn1.onclick = fnFilterInput;
+
+
+
+    </script>
+</body>
+</html>
