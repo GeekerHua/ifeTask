@@ -127,11 +127,12 @@
         for (let i=0 ;i< (aBoxs.length);i++) {
             // oTxt1.oninput
             // 获取焦点，提示信息
-            aBoxs[i].children[1].onclick = function(){
+            // fnGetInput(i)
+            fnGetInput(i).onclick = function(){
                 fnClickInput(i);
             } 
                 // 失去焦点校验输入内容
-            aBoxs[i].children[1].onblur = function() {
+            fnGetInput(i).onblur = function() {
                 fnCheck(i);
             }
         }
