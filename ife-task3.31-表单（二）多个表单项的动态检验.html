@@ -1,119 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>表单（二）多个表单项的动态检验</title>
     <style>
-        .box{
+        .box {
             margin: 20px auto 0;
             width: 400px;
             position: relative;
         }
-
+        
         label.name {
             text-align: right;
             width: 70px;
             display: inline-block;
             margin-right: 30px;
         }
-
-        .info{
+        
+        .info {
             font-size: 12px;
             display: none;
             margin: 5px 105px 0;
             color: #bbb;
         }
-        .input{
+        
+        .input {
             height: 25px;
             width: 200px;
             box-sizing: border-box;
         }
-
-        .btn{
+        
+        .btn {
             background-color: dodgerblue;
             color: #fff;
             border: 0;
             border-radius: 5px;
             cursor: pointer;
             width: 60px;
-            height: 30px; 
+            height: 30px;
             float: right;
         }
-
-        .error{
+        
+        .error {
             border-color: red;
         }
-        .input.error{
+        
+        .input.error {
             border: 1px solid red;
         }
-        .info.error{
+        
+        .info.error {
             color: red;
         }
         
-        .success{
+        .success {
             border-color: limegreen;
         }
-        .input.success{
+        
+        .input.success {
             border: 1px solid limegreen;
         }
-        .info.success{
+        
+        .info.success {
             color: limegreen;
         }
-
     </style>
 </head>
+
 <body>
     <div class="box box1">
         <label class="name" for="">名称</label>
-        <input class="input" type="text" value="" >
+        <input class="input" type="text" value="">
         <label class="info" for="">姓名不能为空</label>
     </div>
 
     <div class="box box2">
         <label class="name" for="">密码</label>
-        <input class="input" type="text" value="" >
-        <label class="info"  for="">姓名不能为空</label>
+        <input class="input" type="password" value="">
+        <label class="info" for="">姓名不能为空</label>
     </div>
 
     <div class="box box3">
         <label class="name" for="">密码确认</label>
-        <input class="input"  type="text" value="" >
-        <label class="info"  for="">姓名不能为空</label>
+        <input class="input" type="password" value="">
+        <label class="info" for="">姓名不能为空</label>
     </div>
 
     <div class="box box4">
         <label class="name" for="">邮箱</label>
-        <input class="input" type="text" value="" >
-        <label class="info"for="">姓名不能为空</label>
+        <input class="input" type="email" value="">
+        <label class="info" for="">姓名不能为空</label>
     </div>
 
     <div class="box box5">
         <label class="name" for="">手机</label>
-        <input class="input" id='input5' type="text" value="" >
+        <input class="input" id='input5' type="phone" value="">
         <label class="info" id="info5" for="">姓名不能为空</label>
     </div>
     <input class="btn" id="btn" type="button" value="提交">
 
-    <script>    
-
-        var checkList = [
-            {"info": "必填，长度为4-16个字符", "errorInfo":"名称格式不正确", "successInfo":"名称格式正确", 'regexp':/[^\x00-\xff]/g},
-            {"info": "必填，请输入密码，长度为4-16个字符", "errorInfo":"密码格式不正确", "successInfo":"密码可用", 'regexp': /\w{4,16}/},
-            {"info": "必填，再次输入相同密码", "errorInfo":"密码不正确", "successInfo":"密码输入一致", 'regexp':/\w{4,16}/},
-            {"info": "请输入邮箱", "errorInfo":"邮箱格式不正确", "successInfo":"邮箱格式正确", 'regexp': /\w+@\w+/},
-            {"info": "请输入手机号码", "errorInfo":"手机格式不正确", "successInfo":"手机格式正确", 'regexp': /(13|15|18|17)\d{9}/},
+    <script>
+        var checkList = [{
+                "info": "必填，长度为4-16个字符",
+                "errorInfo": "名称格式不正确",
+                "successInfo": "名称格式正确",
+                'regexp': /[^\x00-\xff]/g
+            },
+            {
+                "info": "必填，请输入密码，长度为4-16个字符",
+                "errorInfo": "密码格式不正确",
+                "successInfo": "密码可用",
+                'regexp': /\w{4,16}/
+            },
+            {
+                "info": "必填，再次输入相同密码",
+                "errorInfo": "密码不正确",
+                "successInfo": "密码输入一致",
+                'regexp': /\w{4,16}/
+            },
+            {
+                "info": "请输入邮箱",
+                "errorInfo": "邮箱格式不正确",
+                "successInfo": "邮箱格式正确",
+                'regexp': /\w+@\w+/
+            },
+            {
+                "info": "请输入手机号码",
+                "errorInfo": "手机格式不正确",
+                "successInfo": "手机格式正确",
+                'regexp': /(13|15|18|17)\d{9}/
+            },
         ];
 
         var aBoxs = document.getElementsByClassName('box');
         var oBtn = document.getElementById('btn');
 
         // 点击提交
-        oBtn.onclick = function(){
+        oBtn.onclick = function () {
             var flag = true;
-            for (let i=0 ;i< (aBoxs.length);i++) {
-                if (!fnCheck(i)){
+            for (let i = 0; i < (aBoxs.length); i++) {
+                if (!fnCheck(i)) {
                     flag = false;
                 }
             }
@@ -124,15 +153,14 @@
             }
         }
 
-        for (let i=0 ;i< (aBoxs.length);i++) {
-            // oTxt1.oninput
+        for (let i = 0; i < (aBoxs.length); i++) {
+            // oTxt1.
             // 获取焦点，提示信息
-            // fnGetInput(i)
-            fnGetInput(i).onclick = function(){
+            fnGetInput(i).onfocus = function () {
                 fnClickInput(i);
-            } 
-                // 失去焦点校验输入内容
-            fnGetInput(i).onblur = function() {
+            }
+            // 失去焦点校验输入内容
+            fnGetInput(i).onblur = function () {
                 fnCheck(i);
             }
         }
@@ -143,7 +171,7 @@
             fnGetInfo(index).style.display = 'block';
             var regex = checkList[index]['regexp'];
             var successFlag = false;
-            if (txt.length == 0 ){
+            if (txt.length == 0) {
                 // 名称不能为空
                 fnGetInfo(index).innerHTML = checkList[index]["errorInfo"];
                 fnGetInfo(index).className = 'info error';
@@ -152,12 +180,12 @@
             }
             // 姓名
             if (index == 0) {
-                tmpTxt = txt.replace(regex,"01");
-                if( tmpTxt.length >= 4 && tmpTxt.length <=16){
+                tmpTxt = txt.replace(regex, "01");
+                if (tmpTxt.length >= 4 && tmpTxt.length <= 16) {
                     successFlag = true;
                 }
             } else if (index == 2) {
-                successFlag = (regex.test(txt) && txt == fnGetInput(index-1).value);
+                successFlag = (regex.test(txt) && txt == fnGetInput(index - 1).value);
             } else {
                 successFlag = regex.test(txt);
             }
@@ -176,11 +204,11 @@
             return successFlag;
         }
         // 输入框获取焦点
-        function fnClickInput(index)  {
+        function fnClickInput(index) {
             fnGetInfo(index).style.display = 'block';
             fnGetInfo(index).innerHTML = checkList[index]["info"];
         }
-        
+
         // 获取提示label
         function fnGetInfo(index) {
             return aBoxs[index].getElementsByClassName('info')[0];
@@ -189,7 +217,7 @@
         function fnGetInput(index) {
             return aBoxs[index].getElementsByClassName('input')[0];
         }
-
     </script>
 </body>
+
 </html>
