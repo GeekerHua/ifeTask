@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>听指令的小方块（一）</title>
+    <style>
+        table {
+            float: left;
+            margin: 0;
+            padding: 0;
+            border-spacing: 0;
+            border: 1px solid #000;
+        }
+        
+        td {
+            border: 0.5px solid #ddd;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            box-sizing: border-box
+        }
+        
+        #square {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .red {
+            background-color: red;
+            width: 100%;
+            height: 30px;
+        }
+        
+        .blue {
+            background-color: blue;
+            height: 10px;
+            width: 100%;
+        }
+        
+        #rowHeader,
+        #colHeader {
+            border: none;
+            text-align: center;
+        }
+        
+        #rowHeader td,
+        #colHeader td {
+            border: none;
+        }
+        
+        .con {
+            width: 450px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="con">
+        <table id="colHeader">
+        </table>
+        <table id="rowHeader">
+        </table>
+
+        <table id="table">
+        </table>
+        <input id="input" type="text" placeholder="GO/TUN LEF/TUN RIG/TUN BAC">
+        <input id="go" type="button" value="GO">
+        <input id="left" type="button" value="turn left">
+        <input id="right" type="button" value="turn right">
+        <input id="reverse" type="button" value="旋转180° reverse">
+    </div>
+
+    <script>
+        var x = 5;
+        var y = 5;
+        var derection = 0;
+
+        var oTable = document.getElementById('table');
+        var oRowHeader = document.getElementById('rowHeader');
+        var oColHeader = document.getElementById('colHeader');
+
+        var oSquare = document.createElement('div');
+        oSquare.id = 'square';
+
+        var oBlue = document.createElement('div');
+        oBlue.className = 'blue';
+
+        var oRed = document.createElement('div');
+        oRed.className = 'red';
+
+        oSquare.appendChild(oBlue);
+        oSquare.appendChild(oRed);
+
+        fnAddColTitle();
+        fnAddRowTitle();
+        fnAddTable();
+
+        // 简便按钮
+        var oLeft = document.getElementById('left');
+        var oRight = document.getElementById('right');
+        var oReverse = document.getElementById('reverse');
+
+        oLeft.onclick = fnTurnLeft;
+        oRight.onclick = fnTurnRight;
+        oReverse.onclick = fnTurnReverse;
+
+        //  GO
+        var oGo = document.getElementById('go');
+        var oInput = document.getElementById('input');
+        oGo.onclick = function () {
+            //  旋转
+            switch (oInput.value) {
+                case "GO":
+                    fnGoHead();
+                    break;
+                case "TUN LEF":
+                    fnTurnLeft();
+                    break;
+                case "TUN RIG":
+                    fnTurnRight();
+                    break;
+                case "TUN BAC":
+                    fnTurnReverse();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function fnAddColTitle() {
+            for (let j = 0; j < 11; j++) {
+                var oTr = document.createElement('tr');
+                var oTd = document.createElement('td');
+                if (j != 0) {
+                    oTd.appendChild(document.createTextNode(j));
+                }
+                oTr.appendChild(oTd);
+                oColHeader.appendChild(oTr);
+            }
+        }
+
+        function fnAddRowTitle() {
+            var oTr = document.createElement('tr');
+            for (let j = 0; j < 10; j++) {
+                var oTd = document.createElement('td');
+                oTd.appendChild(document.createTextNode(j + 1));
+                oTr.appendChild(oTd);
+            }
+            oRowHeader.appendChild(oTr);
+        }
+
+        function fnAddTable() {
+            for (let i = 0; i < 10; i++) {
+                var oTr = document.createElement('tr');
+                for (let j = 0; j < 10; j++) {
+                    var oTd = document.createElement('td');
+                    if (i == y && j == x) {
+                        oTd.appendChild(oSquare);
+                    }
+                    oTr.appendChild(oTd);
+                }
+                oTable.appendChild(oTr);
+            }
+        }
+
+
+
+        function fnMove(x, y) {
+            var oTr = document.getElementById('table').getElementsByTagName('tr')[y];
+            var oTd = oTr.getElementsByTagName('td')[x];
+            oTd.appendChild(oSquare);
+        }
+
+        // GO命令
+        function fnGoHead() {
+            var d = ((derection % 4) + 4) % 4;
+            // console.log(d);
+            switch (d) {
+                case 0:
+                    if (y <= 0) {
+                        return;
+                    }
+                    y--;
+                    break;
+                case 1:
+                    if (x >= 9) {
+                        return;
+                    }
+                    x++;
+                    break;
+                case 2:
+                    if (y >= 9) {
+                        return;
+                    }
+                    y++;
+                    break;
+                case 3:
+                    if (x <= 0) {
+                        return;
+                    }
+                    x--;
+                    break;
+                default:
+                    break;
+            }
+            oSquare.parentElement.removeChild(oSquare);
+            fnMove(x, y)
+        }
+
+
+
+        function fnTurnLeft() {
+            derection--;
+            oSquare.style.transform = 'rotate(' + (derection * 90) + 'deg)'
+        }
+
+        function fnTurnRight() {
+            derection++;
+            oSquare.style.transform = 'rotate(' + (derection * 90) + 'deg)'
+        }
+
+        function fnTurnReverse() {
+            derection += 2;
+            oSquare.style.transform = 'rotate(' + (derection * 90) + 'deg)'
+        }
+    </script>
+</body>
+
+</html>

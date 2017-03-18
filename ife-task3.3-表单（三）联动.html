@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单（三）联动</title>
+    <style>
+        select {
+            width: 150px;
+        }
+        
+        #unit {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <input type="radio" name="from" id="radio1" value="1" checked>在校生
+        <input type="radio" name="from" id="radio0" value="0">非在校生
+        <br>
+        <label for="">学校</label>
+        <select name="type" id="select1">
+        </select>
+        <select name="type" id="select2">
+        </select>
+        <input type="text" id="unit">
+    </form>
+
+    <script>
+        var oradio1 = document.getElementById('radio1');
+        var oradio0 = document.getElementById('radio0');
+        var aSelects = document.getElementsByTagName('select');
+        var aInput = document.getElementById('unit');
+        var oSelect1 = document.getElementById('select1');
+        var oSelect2 = document.getElementById('select2');
+
+        // 联动
+        var colloge = [{
+                "name": "北京",
+                "value": "0",
+                "items": [{
+                        "name": "北京大学",
+                        "value": "11"
+                    },
+                    {
+                        "name": "清华大学",
+                        "value": "12"
+                    },
+                ],
+            },
+            {
+                "name": "上海",
+                "value": "1",
+                "items": [{
+                        "name": "复旦大学",
+                        "value": "21"
+                    },
+                    {
+                        "name": "上海交通大学",
+                        "value": "22"
+                    },
+                ],
+            },
+        ]
+
+        function fnSetOption(i) {
+            var items = colloge[i]['items']
+            for (let j = 0; j < items.length; j++) {
+                var oOption = document.createElement('option');
+                oOption.value = items[j]['value'];
+                oOption.appendChild(document.createTextNode(items[j]['name']))
+                oSelect2.appendChild(oOption);
+            }
+        }
+
+        for (let i = 0; i < colloge.length; i++) {
+            var oOption = document.createElement('option');
+            oOption.value = colloge[i]['value'];
+            oOption.appendChild(document.createTextNode(colloge[i]['name']))
+            oSelect1.appendChild(oOption);
+        }
+
+        fnSetOption(0);
+        oSelect1.onchange = function () {
+            oSelect2.innerHTML = '';
+            fnSetOption(oSelect1.selectedIndex);
+        }
+        // 点击非在校生
+        oradio0.onclick = function () {
+            for (var i = 0; i < aSelects.length; i++) {
+                aSelects[i].style.display = 'none';
+            }
+            aInput.style.display = 'inline';
+        }
+
+        // 点击在校生
+        oradio1.onclick = function () {
+            for (var i = 0; i < aSelects.length; i++) {
+                aSelects[i].style.display = 'inline';
+            }
+            aInput.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
